@@ -10,7 +10,8 @@ import {
   FiMenu,
 } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
-import MobileSidebar from "./MobileSidebar";
+import MobileSidebar from "./components/MobileSidebar";
+
 
 
 // Navbar component
