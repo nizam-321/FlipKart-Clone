@@ -1,7 +1,10 @@
 # 🛒 Flipkart Clone
 
-A modern, responsive Flipkart-inspired e-commerce frontend built with **Next.js 14** and **Tailwind CSS**.  
-This project demonstrates advanced React patterns, clean UI/UX, and scalable code architecture—perfect for showcasing your frontend skills to recruiters and hiring managers.
+
+A modern, responsive **Flipkart-inspired e-commerce UI** built with **Next.js 14** and **Tailwind CSS**.
+
+This project demonstrates advanced React patterns, scalable architecture, and a polished frontend experience—ideal for showcasing modern web development skills.
+
 
 ---
 
@@ -18,6 +21,15 @@ This project demonstrates advanced React patterns, clean UI/UX, and scalable cod
 - **Seller Section** (Become a Seller CTA)
 - **Clean Codebase** with clear folder structure and comments
 
+
+## 🛠️ Tech Stack
+
+- **Next.js 14** (App Router)
+- **React 18**
+- **Tailwind CSS**
+- **React Icons**
+- Deployed via: *("https://flipkart-clone-git-main-nizams-projects-a322af4f.vercel.app/")*
+- 
 ---
 
 ## 📂 Folder Structure
@@ -74,14 +86,6 @@ flipkart-clone/
 - **Scalable Structure:** Ready for backend/API integration.
 - **Clean, Readable Code:** Well-commented and organized for team collaboration.
 - **Recruiter Friendly:** Shows practical skills in React, Next.js, and modern CSS.
-
----
-
-## 📸 Screenshots
-
-> ![Home Page](public/screenshots/home.png)
-> ![Product Detail](public/screenshots/product-detail.png)
-> ![Responsive Design](public/screenshots/mobile.png)
 
 ---
 
