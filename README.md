@@ -28,7 +28,7 @@ This project demonstrates advanced React patterns, scalable architecture, and a 
 - **React 18**
 - **Tailwind CSS**
 - **React Icons**
-- Deployed via: *("https://flipkart-clone-git-main-nizams-projects-a322af4f.vercel.app/")*
+- Deployed via: *("https://flipkart-clone-gilt-two.vercel.app/")*
 - 
 ---
 
