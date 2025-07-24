@@ -98,13 +98,3 @@ flipkart-clone/
 - Write unit and integration tests
 
 ---
-
-## 📧 Contact
-
-- **Email:** your.email@example.com
-- **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- **GitHub:** [github.com/your-username](https://github.com/your-username)
-
----
-
-> **_Thank you for visiting! If you like this project, please ⭐️ the repo and consider me for your frontend roles!_**
