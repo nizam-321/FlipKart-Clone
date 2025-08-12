@@ -2,7 +2,7 @@ import React from 'react'
 import "./globals.css";
 import CategoryMenu from './components/category-menu'
 import BannerSlider from './components/bannerslider'
-import BestofElectronics from './components/BestofElectronics'
+import BestofElectronics from './components/bestOfElectronics'
 import FoodsToyes from './components/foods&toys'
 import SportsHealth from './components/sports&health'
 import DealsSection from './components/dealsSection'

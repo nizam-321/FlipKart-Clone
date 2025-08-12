@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import LoginDropdown from "./LoginDropdown";
+import MobileSidebar from "./mobileSidebar";
 import {
   FiSearch,
   FiShoppingCart,
@@ -10,7 +11,8 @@ import {
   FiMenu,
 } from "react-icons/fi";
 import { MdStorefront } from "react-icons/md";
-import MobileSidebar from "./MobileSidebar";
+
+
 
 // Navbar component
 // This component handles the desktop and mobile navigation bar, including search functionality and user interactions.
