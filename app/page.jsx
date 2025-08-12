@@ -1,4 +1,5 @@
 import React from 'react'
+import "./globals.css";
 import CategoryMenu from './components/category-menu'
 import BannerSlider from './components/bannerslider'
 import BestofElectronics from './components/BestofElectronics'

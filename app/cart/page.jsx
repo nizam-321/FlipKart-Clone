@@ -6,10 +6,13 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 
   // Load cart items from localStorage on component mount
+  //Jab page load hota hai ([] means only once), tab:localStorage se cart data le rahe hain.
+  // Har item me quantity add kar rahe hain (agar pehle nahi hai to 1).
+  // Uske baad setCartItems() se state update kar rahe hain.
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("cartItems")) || [];
-    
-    const itemsWithQty = items.map(item => ({
+
+    const itemsWithQty = items.map((item) => ({
       ...item,
       quantity: item.quantity || 1,
     }));
@@ -17,14 +20,21 @@ const CartPage = () => {
   }, []);
 
   // Handle item removal and quantity changes
+
   const handleRemove = (id) => {
-    const updated = cartItems.filter(item => item.id !== id);
+    const updated = cartItems.filter((item) => item.id !== id);
     setCartItems(updated);
     localStorage.setItem("cartItems", JSON.stringify(updated));
   };
 
+  // Handle quantity changes
+//   handleQuantityChange function cart me kisi product ki quantity badhane ya ghatane ke liye hai.
+// Har item ko check karta hai — agar id match kare, to uski quantity update karta hai.
+// Math.max(1, ...) use karke ensure karta hai ki quantity kabhi 1 se kam na ho.
+// Naya updated cart setCartItems (state) aur localStorage dono me save kar diya jata hai.
+
   const handleQuantityChange = (id, delta) => {
-    const updatedItems = cartItems.map(item =>
+    const updatedItems = cartItems.map((item) =>
       item.id === id
         ? { ...item, quantity: Math.max(1, item.quantity + delta) }
         : item
@@ -34,8 +44,14 @@ const CartPage = () => {
   };
 
   // Calculate total price and discounts
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const originalPrice = cartItems.reduce((acc, item) => acc + item.originalPrice * item.quantity, 0);
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+  const originalPrice = cartItems.reduce(
+    (acc, item) => acc + item.originalPrice * item.quantity,
+    0
+  );
   const totalDiscount = originalPrice - totalPrice;
 
   return (
@@ -43,42 +59,62 @@ const CartPage = () => {
       {/* Page Title */}
       {cartItems.length === 0 ? (
         <div className="flex flex-col items-center">
-          <img src="/empty-cart.png" alt="Empty Cart" className="w-48 h-38 mb-8" />
+          <img
+            src="/empty-cart.png"
+            alt="Empty Cart"
+            className="w-48 h-38 mb-8"
+          />
           <p className="text-center text-gray-500">Your cart is empty</p>
           <Link href="/">
-            <button className='bg-[#fb641b] cursor-pointer px-6 py-2 text-white mt-2 mb-4'>Shop Now</button>
+            <button className="bg-[#fb641b] cursor-pointer px-6 py-2 text-white mt-2 mb-4">
+              Shop Now
+            </button>
           </Link>
         </div>
-      ) : (  
-        <div className="grid md:grid-cols-3 gap-6"> {/* Cart Items */}
+      ) : (
+        <div className="grid md:grid-cols-3 gap-6">
+          {" "}
+          {/* Cart Items */}
           <div className="md:col-span-2 space-y-4">
-            {cartItems.map(item => (
-              <div key={item.id} className="flex gap-4 shadow-sm p-4  border-gray-200">
-                <Link href={`/product/${item.id}`} className="block w-24 h-24 flex-shrink-0">
-                <img
-                  src={item.imageUrl}
-                  alt={item.name}
-                  className="w-24 h-24 object-contain"
-                />
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex gap-4 shadow-sm p-4  border-gray-200"
+              >
+                <Link
+                  href={`/product/${item.id}`}
+                  className="block w-24 h-24 flex-shrink-0"
+                >
+                  <img
+                    src={item.imageUrl}
+                    alt={item.name}
+                    className="w-24 h-24 object-contain"
+                  />
                 </Link>
                 <div className="flex-1">
-                  
                   <h2 className="font-medium">
-                    {item.name.split(" ").slice(0, 10).join(" ")}{item.name.split(" ").length > 10 ? "..." : ""}
+                    {item.name.split(" ").slice(0, 10).join(" ")}
+                    {item.name.split(" ").length > 10 ? "..." : ""}
                   </h2>
                   <p className="text-sm text-gray-500">
                     {item.category} | {item.color}
                   </p>
-                  <div className="flex items-center gap-2 text-sm mt-1"> {/* Price and discount */}
-                    <span className="text-green-600 font-semibold">₹{item.price}</span>
-                    <span className="line-through text-gray-400">₹{item.originalPrice}</span>
+                  <div className="flex items-center gap-2 text-sm mt-1">
+                    {" "}
+                    {/* Price and discount */}
+                    <span className="text-green-600 font-semibold">
+                      ₹{item.price}
+                    </span>
+                    <span className="line-through text-gray-400">
+                      ₹{item.originalPrice}
+                    </span>
                     <span className="text-green-600">{item.discount}</span>
                   </div>
-                  
+
                   <div className="text-xs text-gray-500">
                     {item.rating} ★ ({item.reviews} reviews)
                   </div>
-                 
+
                   <div className="mt-2 flex items-center gap-4">
                     <div className="flex items-center border rounded px-2">
                       <button
@@ -107,12 +143,15 @@ const CartPage = () => {
               </div>
             ))}
           </div>
-
           <div className="border border-gray-200 p-4 h-fit">
             <h2 className="font-semibold mb-2">PRICE DETAILS</h2>
             <div className="text-sm space-y-2">
               <div className="flex justify-between">
-                <span>Price ({cartItems.reduce((acc, item) => acc + item.quantity, 0)} items)</span>
+                <span>
+                  Price (
+                  {cartItems.reduce((acc, item) => acc + item.quantity, 0)}{" "}
+                  items)
+                </span>
                 <span>₹{originalPrice}</span>
               </div>
               <div className="flex justify-between">

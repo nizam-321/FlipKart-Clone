@@ -66,7 +66,7 @@ const FoodsToyes = () => {
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto mt-6 scroll-smooth scrollbar-hide"
+          className="flex gap-6 overflow-x-auto mt-6 scroll-smooth scrollbar-hidden"
         >
           {products.map((product, index) => (
             <a
@@ -88,12 +88,12 @@ const FoodsToyes = () => {
         </div>
 
         {/* Scroll Button */}
-        <button
+        {/* <button
           className="absolute right-0 top-10 bg-white border shadow-md rounded-full p-2"
           onClick={scrollRight}
         >
           &gt;
-        </button>
+        </button> */}
       </div>
     </div>
   );

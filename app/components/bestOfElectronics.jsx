@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 
+
 // Sample products data
 // This data can be fetched from an API or database in a real application
 const products = [
@@ -61,12 +62,12 @@ const BestOfElectronics = () => {
 
   return (
     <div className="w-full bg-white p-4 mt-4">
-      <div className="flex flex-col relative">
+      <div className=" w-full flex flex-col relative">
         <h2 className="text-xl font-semibold mb-4">Best of Electronics</h2>
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto mt-6 scroll-smooth scrollbar-hide"
+          className="flex gap-6 mt-6 scroll-smooth overflow-x-auto scrollbar-hidden"
         >
           {products.map((product, index) => (
             <Link
@@ -86,13 +87,6 @@ const BestOfElectronics = () => {
             </Link>
           ))}
         </div>
-
-        <button
-          className="absolute right-0 top-10 bg-white border shadow-md rounded-full p-2"
-          onClick={scrollRight}
-        >
-          &gt;
-        </button>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ import {
 import { MdStorefront } from "react-icons/md";
 import MobileSidebar from "./MobileSidebar";
 
-
 // Navbar component
 // This component handles the desktop and mobile navigation bar, including search functionality and user interactions.
 
@@ -32,15 +31,15 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll); // Attach scroll event listener
-    return () => window.removeEventListener("scroll", handleScroll); 
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
       {/* Navbar (desktop only) */}
       <header
-        className={`w-full bg-white shadow-sm px-4 py-3 sticky top-0 z-50 transition-all duration-300 ${
-          showFullNavbar ? "opacity-100 h-auto" : "opacity-0 h-0 overflow-hidden"
+        className={`w-full bg-white shadow-sm px-4 py-3 sticky top-0 z-50 transform transition-transform duration-300 ${
+          showFullNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="w-full flex items-center flex-wrap justify-between gap-3">
@@ -53,11 +52,11 @@ const Navbar = () => {
               <FiMenu />
             </button>
             <Link href="/">
-            <img
-              src="/flipkart-logo.png"
-              alt="Flipkart"
-              className="w-32 h-auto"
-            />
+              <img
+                src="/flipkart-logo.png"
+                alt="Flipkart"
+                className="w-32 h-auto"
+              />
             </Link>
           </div>
 
@@ -77,14 +76,16 @@ const Navbar = () => {
           <div className="hidden md:flex flex-1 justify-between items-center text-base font-medium max-w-[400px]">
             <div className="flex items-center space-x-2 cursor-pointer">
               {/* <FiUser className="text-xl" /> */}
-              <span><LoginDropdown/></span>
+              <span>
+                <LoginDropdown />
+              </span>
             </div>
             <Link href="/cart">
-            <div className="flex items-center space-x-2 cursor-pointer">
-              <FiShoppingCart className="text-xl" />
-              <span>Cart</span>
-            </div>
-             </Link>
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <FiShoppingCart className="text-xl" />
+                <span>Cart</span>
+              </div>
+            </Link>
             <div className="flex items-center space-x-2 cursor-pointer">
               <MdStorefront className="text-xl" />
               <span>Become a Seller</span>
@@ -124,4 +125,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
