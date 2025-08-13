@@ -16,8 +16,8 @@ const DisclaimerPage = () => {
           <span className="font-medium">educational</span> purposes.
           <br />
           <b>
-            On the Home page, under Best of Electronics, the first product
-            (Earbuds) is clickable and will open the product listings.
+            Under Best of Electronics, the first product
+            Best TrueWireless is clickable and will open the product listings.
           </b>
           <br />
           <br />
